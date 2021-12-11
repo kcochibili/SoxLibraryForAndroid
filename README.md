@@ -29,7 +29,7 @@ dependencies {
     // sox file[0] file[1] ... file[n] <outFile>
 
     String soxCommand = "sox -m in1.mp3 in2.mp3 in3.mp3 out.mp3"
-    int exitVal = SoxCommandLib.ExcuateCommand(soxCommand);
+    int exitVal = SoxCommandLib.executeCommand(soxCommand);
  
     if(exitVal == 0){
       Log.v("SOX", "Sox finished successfully");
