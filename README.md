@@ -43,6 +43,32 @@ dependencies {
 **Example usage with helper methods:**
 ```Java
 
-    Coming soon..
+    public void mixAllSoundsAndPlay(ArrayList<String> audioFilePaths, String audioOutPath) throws FileNotFoundException, IOException{
+
+        ShellCallback mixDoneResponse = new ShellCallback() {
+
+            @Override
+            public void shellOut(String shellLine) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void processComplete(int exitValue) {
+                // TODO Auto-generated method stub
+
+                playCombinedSound(audioOutPath);
+
+            }
+        };
+
+        Context context = getApplicationContext();
+
+        SoxController mAuxController = new SoxController(context, mixDoneResponse);
+
+        // when the processing is done, you will get a callback response in the ShellCallback above
+        mAuxController.combineMix(audioFilePaths, audioOutPath); // so simple 😊
+
+
+    }
 
 ```
